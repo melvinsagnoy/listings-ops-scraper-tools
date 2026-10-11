@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Amazon ASIN Scraper</title>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Amazon ASIN Scraper</h1>
+      <p class="subtitle">Paste one or more ASINs (one per line, or comma-separated) to fetch their ratings and review counts.</p>
+    </header>
+
+    <form id="scrape-form">
+      <label for="asin-input">ASINs (up to 20)</label>
+      <textarea id="asin-input" name="asins" rows="6"
+        placeholder="B0DT95J4QC&#10;B08N5WRWNW, B07XJ8C8F5"
+        required></textarea>
+      <div class="form-row">
+        <span id="asin-count" class="muted">0 ASINs</span>
+        <button id="scrape-btn" type="submit">Scrape Products</button>
+      </div>
+    </form>
+
+    <section id="loading" class="hidden">
+      <div class="spinner"></div>
+      <p id="loading-text">Scraping…</p>
+    </section>
+
+    <section id="error" class="hidden error-box"></section>
+
+    <section id="results" class="hidden">
+      <div class="results-header">
+        <h2>Results</h2>
+        <div class="actions">
+          <button id="again-btn" type="button">Scrape Another</button>
+          <button id="csv-btn" type="button">Export CSV</button>
+        </div>
+      </div>
+      <div id="results-list"></div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
